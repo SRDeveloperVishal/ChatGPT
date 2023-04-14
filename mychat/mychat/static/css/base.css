@@ -1,0 +1,35 @@
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Base styles */
+  body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #333;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    margin: 20px 0;
+  }
+  
+  a {
+    color: #007bff;
+  }
+  
+  /* Layout styles */
+  header, footer {
+    background-color: #eee;
+    padding: 10px;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
