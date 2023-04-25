@@ -281,6 +281,9 @@ body:not(.mobile) #button button:not(.disabled):focus i.type1::after {
   background: rgb(255, 255, 255);
   z-index: 3;
   flex: 0 0 auto;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-color: #c7c7c7;
 }
 .input-group .footer-input-wrapper,
 .input-group .footer-icons-wrapper {
@@ -372,7 +375,7 @@ hr {
 }
 
 #conversation-group {
-  padding: 0px 28px;
+  padding: 10px 28px;
   width: 100%;
   height: 357px;
   overflow: hidden auto;
@@ -383,8 +386,6 @@ hr {
   flex: 0 1 auto;
   border-top-width: 1px;
   border-top-style: solid;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
   border-color: #c7c7c7;
 }
 .message-operator.bots-quick-replies button {
@@ -662,7 +663,7 @@ element.style {
   line-height: 19px;
   padding: 10px 16px;
   color: #fff;
-  background: rgb(32, 21, 255);
+  background: #4D44FF;
   position: relative;
   z-index: 2;
   outline: none;
@@ -674,7 +675,7 @@ element.style {
 
 .botText {
   color: rgb(6, 19, 43);
-  background: rgb(240, 242, 247);
+  background: #F6F6F6;
   padding: 10px 16px;
   border-radius: 8px;
   border-top-right-radius: 20px;
@@ -691,4 +692,66 @@ element.style {
 
 .svgsent {
   background-color: rgb(32, 21, 255);
+}
+
+
+
+/* loading */
+
+#loading{
+  visibility: hidden;
+  display: none;
+  padding: 1rem 0;
+}
+
+#loading.active{
+  visibility: visible;
+  display: block;
+}
+
+.stage {
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 10px 0;
+    margin: 0 -5%;
+    overflow: hidden;
+  }
+
+
+.dot-typing {
+  position: absolute;
+  left: -10px;
+  /* transform: translateX(-50%); */
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: rgba(0, 77, 255, 0.8);
+  color: rgba(0, 77, 255, 0.8);
+  box-shadow: 340px 0 0 0 rgba(0, 77, 255, 0.8), 320px 0 0 0 rgba(0, 77, 255, 0.8), 300px 0 0 0 rgba(0, 77, 255, 0.8);
+  animation: dot-typing 1.5s infinite linear;
+}
+
+@keyframes dot-typing {
+  0% {
+    box-shadow: 340px 0 0 0 rgba(0, 77, 255, 0.8), 320px 0 0 0 rgba(0, 77, 255, 0.8), 300px 0 0 0 rgba(0, 77, 255, 0.8)
+  }
+  16.667% {
+    box-shadow: 340px -10px 0 0 rgba(0, 77, 255, 0.8), 320px 0 0 0 rgba(0, 77, 255, 0.8), 300px 0 0 0 rgba(0, 77, 255, 0.8);
+  }
+  33.333% {
+    box-shadow: 340px 0 0 0 rgba(0, 77, 255, 0.8), 320px 0 0 0 rgba(0, 77, 255, 0.8), 300px 0 0 0 rgba(0, 77, 255, 0.8)
+  }
+  50% {
+    box-shadow: 340px 0 0 0 rgba(0, 77, 255, 0.8), 320px -10px 0 0 rgba(0, 77, 255, 0.8), 300px 0 0 0 rgba(0, 77, 255, 0.8);
+  }
+  66.667% {
+    box-shadow: 340px 0 0 0 rgba(0, 77, 255, 0.8), 320px 0 0 0 rgba(0, 77, 255, 0.8), 300px 0 0 0 rgba(0, 77, 255, 0.8)
+  }
+  83.333% {
+    box-shadow: 340px 0 0 0 rgba(0, 77, 255, 0.8), 320px 0 0 0 rgba(0, 77, 255, 0.8), 300px -10px 0 0 rgba(0, 77, 255, 0.8);
+  }
+  100% {
+    box-shadow: 340px 0 0 0 rgba(0, 77, 255, 0.8), 320px 0 0 0 rgba(0, 77, 255, 0.8), 300px 0 0 0 rgba(0, 77, 255, 0.8)
+  }
 }

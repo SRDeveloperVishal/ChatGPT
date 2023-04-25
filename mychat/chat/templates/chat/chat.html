@@ -27,6 +27,13 @@
                         <div style="top: 0px; height: 55.8952px;"></div>
                     </div>
                 </div>
+
+                <div id="loading" class="snippet" data-title="dot-typing">
+                    <div class="stage">
+                        <div class="dot-typing"></div>
+                    </div>
+                </div>
+
                 <div class="input-group ">
                     <hr>
                     <div class="drag-active-wrapper footer-input-wrapper">
@@ -79,6 +86,24 @@
     const sendButton = document.getElementById("SentButton");
     const clearButton = document.getElementById("ClearButton");
 
+    // selecting loading div
+    const loader = document.querySelector("#loading");
+
+
+    function displayLoading() {
+        loader.classList.add("active");
+        console.log(loader)
+        // to stop loading after some time
+        setTimeout(() => {
+            loader.classList.remove("active");
+        }, 5000);
+    }
+
+    // hiding loading 
+    function hideLoading() {
+        loader.classList.remove("active");
+    }
+
     if (chatButton) {
         chatButton.addEventListener("click", function () {
             if (chatContainer) {
@@ -106,6 +131,7 @@
     }
 
     function chatbotResponse(user_message) {
+        displayLoading()
         fetch('chat/', {
           method: 'POST',
           headers: {
@@ -119,7 +145,8 @@
           // Add response to chat messages list
           var message = data.response;
           const botMessage = createMessage(message, false);
-          botMessage.scrollIntoView();  
+          botMessage.scrollIntoView();
+          hideLoading()  
         });
     }
 
