@@ -3,17 +3,30 @@ from django.http import JsonResponse
 import os
 from dotenv import load_dotenv
 import openai
+from django.views.decorators.csrf import csrf_exempt
+
 
 load_dotenv()
 def chat_room(request):
+    # if request.method == 'POST':
+    #     message = request.POST.get('message')
+    #     print (message,'message')
+    #     response = generate_response(message)
+    #     print (response,'response')
+    #     return JsonResponse({'response': response})
+    # else:
+    return render(request, 'chat/chat.html')
+
+@csrf_exempt
+def chat_room_two(request):
     if request.method == 'POST':
         message = request.POST.get('message')
         print (message,'message')
         response = generate_response(message)
         print (response,'response')
         return JsonResponse({'response': response})
-    else:
-        return render(request, 'chat/chat.html')
+    else: 
+        return JsonResponse({'response': 'Hello'})
 
 def generate_response(message):
     #def generate_response(message):

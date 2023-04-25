@@ -214,10 +214,10 @@ body:not(.mobile) #button button:not(.disabled):focus i.type1::after {
 
 .chat,
 .start-group {
-  width: 372px;
+  width: 580px;
   position: fixed;
   bottom: 26px;
-  border-radius: 16px;
+  border-radius: 8px;
   pointer-events: auto;
   box-shadow: rgba(0, 18, 46, 0.16) 0px 8px 22px 0px;
   overflow: hidden;
@@ -225,6 +225,14 @@ body:not(.mobile) #button button:not(.disabled):focus i.type1::after {
   right: 48px;
   left: auto;
   background-color: white;
+}
+
+@media(max-width: 764px){
+  .chat,
+  .start-group{
+    width: 80%;
+    right: 40px;
+  }
 }
 
 .message-operator.bots-quick-replies {
@@ -252,8 +260,10 @@ body:not(.mobile) #button button:not(.disabled):focus i.type1::after {
 
 .message {
   padding: 10px 16px;
-  border-radius: 20px;
+  border-radius: 8px;
+  border-top-right-radius: 20px;
   margin: 2px 0px;
+  margin-top: 15px;
   font-size: 15px;
   line-height: 20px;
   overflow-wrap: break-word;
@@ -280,30 +290,71 @@ body:not(.mobile) #button button:not(.disabled):focus i.type1::after {
 }
 
 textarea {
-  border: 0px;
   width: 100%;
-  font-size: 17px;
-  margin: 20px 0px 14px;
+  min-width: 0px;
+  outline-offset: 2px;
+  position: relative;
+  appearance: none;
+  min-height: 5rem;
+  margin-top: 1rem;
+  line-height: 133%;
+  vertical-align: top;
+  font-size: 1rem;
+  padding-inline-start: 1rem;
+  padding-inline-end: 1rem;
+  height: 3rem;
   resize: none;
-  line-height: 27px;
-  overflow: hidden;
-  -webkit-box-flex: 1;
-  -ms-flex: 1 0 0px;
-  flex: 1 0 0;
-  padding: 0.2rem 0.5rem;
-  border: 1px solid rgb(0, 125, 252)
+  outline: transparent solid 2px;
+  border-radius: 4px;
+  border-width: 1px;
+  border-style: solid;
+  border-image: initial;
+  border-color: #808080;
+  background: #ffffff;
+  padding: 0.75rem 1rem;
+}
+
+textarea:hover, textarea:focus, textarea:active {
+    border-color: rgb(32, 21, 255);
+    box-shadow: rgb(32, 21, 255) 0px 0px 0px 2px;
 }
 
 .send-icon {
-  width: 26px;
-  height: 26px;
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 26px;
-  flex: 0 0 26px;
-  -webkit-backface-visibility: hidden;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-  cursor: pointer;
+  display: inline-flex;
+  appearance: none;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  user-select: none;
+  position: relative;
+  white-space: nowrap;
+  vertical-align: middle;
+  outline-offset: 2px;
+  line-height: 100%;
+  font-weight: 600;
+  font-size: 1rem;
+  text-transform: unset;
+  letter-spacing: 0;
+  height: 3rem;
+  color: #fff;
+  background-color: rgb(110, 110, 110);
+  fill: #fff;
+  outline: transparent solid 2px;
+  border-radius: 4px;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.2s ease 0s;
+  border: none;
+  margin: 10px 0;
+}
+
+.send-icon.clear{
+  background: transparent;
+  color: rgb(32, 21, 255);
+}
+
+.send-icon.clear:hover{
+  background-color: rgb(233, 232, 255);
 }
 
 hr {
@@ -330,6 +381,11 @@ hr {
   max-height: 357px;
   min-height: 160px;
   flex: 0 1 auto;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-color: #c7c7c7;
 }
 .message-operator.bots-quick-replies button {
   font-size: 15px;
@@ -341,29 +397,6 @@ hr {
   overflow: hidden;
   text-overflow: ellipsis;
   min-width: inherit;
-}
-
-.offline-message span.online::before {
-  content: '';
-  display: block;
-  width: 8px;
-  height: 8px;
-  position: absolute;
-  top: calc(50% - 4px);
-  background: rgb(88, 183, 67);
-  border-radius: 50%;
-  left: 0px;
-}
-
-.no-clip-path .offline-message {
-  padding: 14px 28px 20px;
-}
-
-.offline-message span {
-  z-index: 2;
-  position: relative;
-  display: inline-block;
-  font-size: 16px;
 }
 
 .message-operator.message-with-buttons .button-wrapper,
@@ -420,8 +453,8 @@ hr {
 }
 
 .chat-header {
-  padding: 24px 28px 0px;
-  background: linear-gradient(-61deg, rgb(0, 224, 216), rgb(32, 29, 142));
+  padding: 24px 28px;
+  /* background: linear-gradient(-61deg, rgb(0, 224, 216), rgb(32, 29, 142)); */
   position: relative;
   z-index: 4;
   flex: 0 0 auto;
@@ -602,12 +635,6 @@ element.style {
 
 .footer-input-wrapper {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
 }
 
 .clicked {
@@ -633,13 +660,14 @@ element.style {
   display: block;
   font-size: 16px;
   line-height: 19px;
-  padding: 8px 16px;
-  color: rgb(0, 125, 252);
-  background: #f2f9ff;
+  padding: 10px 16px;
+  color: #fff;
+  background: rgb(32, 21, 255);
   position: relative;
   z-index: 2;
   outline: none;
-  border-radius: 20px;
+  border-radius: 8px;
+  border-top-right-radius: 20px;
   font-weight: normal;
   margin: 10px;
 }
@@ -648,7 +676,8 @@ element.style {
   color: rgb(6, 19, 43);
   background: rgb(240, 242, 247);
   padding: 10px 16px;
-  border-radius: 20px;
+  border-radius: 8px;
+  border-top-right-radius: 20px;
   margin: 2px 0px;
   font-size: 15px;
   line-height: 20px;
@@ -660,6 +689,6 @@ element.style {
   transition: margin 0.28s ease-in-out 0s;
 }
 
-.svgsent svg path {
-  fill: #1775ec;
+.svgsent {
+  background-color: rgb(32, 21, 255);
 }

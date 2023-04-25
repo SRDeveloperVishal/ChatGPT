@@ -7,7 +7,7 @@ from chat.views import chat_room
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('', home_view, name='home'),
-    path('', chat_room, name='chat'),
+    path('', include('chat.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
 ]
 if settings.DEBUG:
