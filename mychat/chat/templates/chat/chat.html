@@ -6,7 +6,7 @@
 {% block content %}
    <!---Chat Board Start-->
 <div class="chat-board chatbot chat new trending"></div>
-    <div class="frame-content">
+    <div class="frame-content" id="frame">
         <div class="widget-position-right sidebar-position-right onlyBubble" id="chatContainer">
 
             <div class="chat no-clip-path chrome moveFromRight-enter-done">
@@ -60,7 +60,7 @@
                     class="chrome"
                     tabindex="0"
                     aria-label="Open chat widget"
-                    style="background-color: rgb(32, 21, 255); box-shadow: rgba(0, 0, 0, 0.4) 0px 4px 14px;">
+                    style="background-color: #5a59bd; box-shadow: rgba(0, 0, 0, 0.4) 0px 4px 14px;">
                 <i class="material-icons type1 for-closed active" style="color: rgb(255, 255, 255);">
                     <svg id="ic_bubble" fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"></path>
@@ -79,6 +79,7 @@
 {% block scripts %}
  <script>
     const chatButton = document.getElementById("chat-button");
+    const frame = document.getElementById("frame");
     const chatContainer = document.getElementById("chatContainer");
     const minimizeButton = document.getElementById("minimize-button");
     const chatInput = document.getElementById("chat-input");
@@ -109,6 +110,7 @@
             if (chatContainer) {
                 chatContainer.classList.add("open");
                 chatButton.classList.add("clicked");
+                frame.classList.add("set-size");
             }
         });
     }
@@ -118,6 +120,7 @@
             if (chatContainer) {
                 chatContainer.classList.remove("open");
                 chatButton.classList.remove("clicked");
+                frame.classList.remove("set-size");
             }
         });
     }
@@ -167,6 +170,7 @@
                 userMessage.scrollIntoView();
                 chatbotResponse(message);
                 sendButton.classList.add("svgsent");
+                chatInput.value = "";
             }
 
         }

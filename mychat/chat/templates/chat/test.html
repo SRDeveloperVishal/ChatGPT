@@ -829,39 +829,6 @@
       </div>
     </div>
 
-    <!---Chat Board End-->
-    <!-- <script>
-    var chatMessages = document.querySelector('#chat-messages');
-    var chatForm = document.querySelector('#chat-form');
-    var chatInput = document.querySelector('#chat-input');
-
-    chatForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      var message = chatInput.value;
-      chatInput.value = '';
-
-      // Send message to server
-      fetch('', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-          'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
-        },
-        body: 'message=' + encodeURIComponent(message)
-      }).then(function(response) {
-        return response.json();
-      }).then(function(data) {
-        // Add response to chat messages list
-        var response = data.response;
-        var chatMessage = document.createElement('li');
-        chatMessage.innerText = 'ChatGPT: ' + response;
-        chatMessages.appendChild(chatMessage);
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-      });
-    });
-  </script> -->
-
     <script>
       const chatButton = document.getElementById('chat-button');
       const chatContainer = document.getElementById('chatContainer');
@@ -897,7 +864,7 @@
       }
 
       function chatbotResponse(user_message) {
-        fetch('http://vishal.io/chat-room/', {
+        fetch('/chat-room/', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',

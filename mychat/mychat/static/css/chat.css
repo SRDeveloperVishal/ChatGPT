@@ -3,8 +3,10 @@
   border: none;
   position: fixed;
   inset: auto 0px 0px auto;
-  width: 450px;
-  height: 647px;
+  /* width: 450px; */
+  /* height: 647px; */
+  width: 0px;
+  height: 0px;
   max-height: 100%;
   opacity: 1;
   color-scheme: none;
@@ -16,6 +18,12 @@
   visibility: visible;
   z-index: 999999999 !important;
 }
+
+.frame-content.set-size{
+  width: 450px;
+  height: 647px;
+}
+
 #chat-button {
   position: fixed;
   width: 112px;
@@ -66,7 +74,7 @@
   transition: all 0.2s ease-in-out 0s;
   position: relative;
   color: rgb(0, 125, 252);
-  border: 1px solid #1e88e5;
+  background-image: none !important;
 }
 
 #button-body::before {
@@ -169,6 +177,11 @@ button.material-icons {
   outline: none;
   cursor: pointer;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+button.material-icons:hover{
+  background-image: none !important;
+  background-color: none !important;
 }
 
 #chat-button button i.type2 svg {
@@ -303,6 +316,7 @@ textarea {
   line-height: 133%;
   vertical-align: top;
   font-size: 1rem;
+  font-style: normal !important;
   padding-inline-start: 1rem;
   padding-inline-end: 1rem;
   height: 3rem;
@@ -318,8 +332,8 @@ textarea {
 }
 
 textarea:hover, textarea:focus, textarea:active {
-    border-color: rgb(32, 21, 255);
-    box-shadow: rgb(32, 21, 255) 0px 0px 0px 2px;
+    border-color: #5a59bd;
+    box-shadow: #5a59bd 0px 0px 0px 2px;
 }
 
 .send-icon {
@@ -351,9 +365,13 @@ textarea:hover, textarea:focus, textarea:active {
   margin: 10px 0;
 }
 
+.send-icon:hover{
+  background-image: none !important;
+}
+
 .send-icon.clear{
   background: transparent;
-  color: rgb(32, 21, 255);
+  color: #5a59bd;
 }
 
 .send-icon.clear:hover{
@@ -406,13 +424,6 @@ hr {
   background: rgb(255, 255, 255);
   width: 100%;
   margin-top: 10px;
-  /* border-width: 0px 1px 1px;
-                border-right-style: solid;
-                border-bottom-style: solid;
-                border-left-style: solid;
-                border-right-color: rgb(235, 238, 240);
-                border-bottom-color: rgb(235, 238, 240);
-                border-left-color: rgb(235, 238, 240);*/
   border-image: initial;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
@@ -691,7 +702,7 @@ element.style {
 }
 
 .svgsent {
-  background-color: rgb(32, 21, 255);
+  background-color: #5a59bd;
 }
 
 
